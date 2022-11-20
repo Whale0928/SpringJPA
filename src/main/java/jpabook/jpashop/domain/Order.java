@@ -30,6 +30,8 @@ public class Order {
     private List<OrderItem> orderItems = new ArrayList<>();
 
     //배송 정보
+    @OneToOne
+    @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
     //주문 시간
@@ -37,5 +39,6 @@ public class Order {
     private LocalDateTime orderDate;
 
     //주문 상태 [ ORDER,CANCEL ]
+    @Enumerated(EnumType.STRING)
     private OrderStatus status;
 }
