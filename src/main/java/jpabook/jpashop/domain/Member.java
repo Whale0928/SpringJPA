@@ -21,6 +21,8 @@ public class Member {
     @Embedded
     private Address address;
 
-    @OneToMany //주문 정보들과 일대다 관계
+    //주문 정보들과 일대다 관계
+    //여기는 읽기 전용이 된다.
+    @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 }
