@@ -26,12 +26,14 @@ public class Order {
     private Member member;
 
     //주문 아이템들
+    @OneToMany(mappedBy = "order")
     private List<OrderItem> orderItems = new ArrayList<>();
 
     //배송 정보
     private Delivery delivery;
 
     //주문 시간
+    //자바8이상에서는 로컬 날짜를 쓰면 하이버네이트가 자동으로 매핑해준다.
     private LocalDateTime orderDate;
 
     //주문 상태 [ ORDER,CANCEL ]
