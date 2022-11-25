@@ -8,6 +8,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.FetchType.*;
+
 @Entity
 @Table(name = "orders")
 @Getter
@@ -20,7 +22,7 @@ public class Order {
     private Long id;
 
 
-    @ManyToOne(fetch = FetchType.LAZY) //회원과 다대일 관계  여러개의 주문 : 하나의 회원 정보
+    @ManyToOne(fetch = LAZY) //회원과 다대일 관계  여러개의 주문 : 하나의 회원 정보
     @JoinColumn(name="member_id")
     // 주문과 회원 도메인 어느쪽이 기준(주인)인지 정리해야 한다 ( 기준의 값이 변했으면 다른 값을 변경 )
     private Member member;
@@ -30,7 +32,7 @@ public class Order {
     private List<OrderItem> orderItems = new ArrayList<>();
 
     //배송 정보
-    @OneToOne
+    @OneToOne(fetch = LAZY)
     @JoinColumn(name = "delivery_id")
     private Delivery delivery;
 
