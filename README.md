@@ -1,6 +1,8 @@
 # SpringJPA_1
 인프런 영한님의 실전 스프링부트 + JPA활용편의 프로젝트입니다.
 
+### <a href="https://deadwhale.notion.site/SpringBoot-JPA-1-1a5957776eba4b21879b378e97876720">노션 정리 노트</a>
+
 ---
 
 
