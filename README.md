@@ -1,6 +1,15 @@
 # SpringJPA_1
 인프런 영한님의 실전 스프링부트 + JPA활용편의 프로젝트입니다.
 
+---
+
+
+# What i Learn This Project?
+- JPA 설계
+- 도메인 분석 / 설계
+
+---
+
 ### Dependencies
 - Spring Web
 - Thymeleaf
