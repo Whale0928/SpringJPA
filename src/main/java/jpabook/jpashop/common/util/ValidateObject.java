@@ -1,7 +1,7 @@
 package jpabook.jpashop.common.util;
 
 
-import static org.jboss.jandex.PrimitiveType.*;
+import static org.jboss.jandex.PrimitiveType.Primitive;
 
 /**객체 자료형 검증
  * The type Validate object.
