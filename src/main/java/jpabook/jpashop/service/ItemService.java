@@ -30,9 +30,18 @@ public class ItemService {
      * @return the list
      */
     public List<Item> findItems(){
-        return findItems();
+        return repo.findAll();
     }
 
+    /**
+     * Find by id item.
+     *
+     * @param id the id
+     * @return the item
+     */
+    public Item findById(Long id){
+        return repo.findOne(id);
+    }
 
 
 }
