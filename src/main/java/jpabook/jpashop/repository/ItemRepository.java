@@ -13,7 +13,7 @@ public class ItemRepository {
     private final EntityManager em;
 
 
-    /*˚*아이템 객체 생성
+    /**아이템 객체 생성
      * Save.
      *
      * @param item the item
@@ -24,6 +24,18 @@ public class ItemRepository {
         //있는 경우에는 머지 수행
         else                     em.merge(item);
     }
+
+    /**
+     * 아이디로 아이템 탐색
+     * Find one item.
+     *
+     * @param id the id
+     * @return the item
+     */
+    public Item findOne(Long id){
+        return em.find(Item.class,id);
+    }
+
 
 
 }
