@@ -86,5 +86,30 @@ public class Order {
         return order;
     }
 
+    /**
+     * 주문 취소 로직 [ 비지니스 로직 ]
+     * Order cancel.
+     */
+    public void orderCancel() {
+        if (delivery.getStatus() == DeliveryStatus.COMP)
+            throw new IllegalStateException("완료된 배송을 취소 할 수 없습니다");
 
+        this.setStatus(OrderStatus.CANCEL);
+        //재고 원상 복구
+        for (OrderItem orderItem : orderItems) {
+            orderItem.cancel();
+        }
+    }
+
+    /**
+     * 전체 가격 조회 [ 조회 로직 ]
+     * Total price int.
+     *
+     * @return the int
+     */
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (OrderItem item : orderItems) totalPrice += item.getTotalPrice();
+        return totalPrice;
+    }
 }
