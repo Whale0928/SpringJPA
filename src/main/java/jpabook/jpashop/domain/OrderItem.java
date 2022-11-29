@@ -8,6 +8,9 @@ import javax.persistence.*;
 
 import static javax.persistence.FetchType.LAZY;
 
+/**
+ * The type Order item.
+ */
 @Entity
 @Getter@Setter
 public class OrderItem {
@@ -31,4 +34,19 @@ public class OrderItem {
     //주문 수량
     private int count;
 
+    /**주문 취소 [ 비지니스 로직 ]
+     * Cancel.
+     */
+    public void cancel() {
+        getItem().addStock(count); // 저장되어 있던 재고 수량을 다시 추가해 원상 복구 한다.
+    }
+
+    /**가격 조회 로직 [ 조회 로직 ]
+     * Get total price int.
+     *
+     * @return the int
+     */
+    public int getTotalPrice(){
+        return getOrderPrice()* getCount();
+    }
 }
