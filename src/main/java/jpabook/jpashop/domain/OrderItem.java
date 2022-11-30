@@ -34,6 +34,24 @@ public class OrderItem {
     //주문 수량
     private int count;
 
+    /**생성 메서드 => 주문 아이템 생성
+     * Create order item.
+     *
+     * @param item       the item
+     * @param orderPrice the order price
+     * @param count      the count
+     * @return the order item
+     */
+    public static OrderItem createOrderItem(Item item,int orderPrice ,int count){
+        OrderItem orderItem = new OrderItem();
+        orderItem.setItem(item);
+        orderItem.setOrderPrice(orderPrice);
+        orderItem.setCount(count);
+
+        //구매한 제품만큼 재고를 제거
+        item.removeStock(count);
+        return orderItem;
+    }
     /**주문 취소 [ 비지니스 로직 ]
      * Cancel.
      */
@@ -46,7 +64,5 @@ public class OrderItem {
      *
      * @return the int
      */
-    public int getTotalPrice(){
-        return getOrderPrice()* getCount();
-    }
+    public int getTotalPrice(){return getOrderPrice()* getCount();}
 }
