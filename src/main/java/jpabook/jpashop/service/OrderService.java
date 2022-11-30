@@ -21,9 +21,17 @@ public class OrderService {
     private final MemberRepository memberRepository;
     private final ItemRepository itemRepository;
 
-    //주문
+    /**
+     * 주문 로직
+     * Order long.
+     *
+     * @param memberId the member id
+     * @param itemId   the item id
+     * @param count    the count
+     * @return the long
+     */
     @Transactional
-    public Long order(Long memberId , Long itemId,int count){
+    public Long order(Long memberId, Long itemId, int count) {
 
         Member orderMember = memberRepository.findOne(memberId);
         Item item = itemRepository.findOne(itemId);
@@ -40,6 +48,16 @@ public class OrderService {
         orderRepository.save(order);
         return order.getId();
     }
-    //취소
+
+
+    /**주문 취소
+     * Cancel.
+     */
+    @Transactional
+    public void cancelOrder(Long orderId) {
+        Order order = orderRepository.findOne(orderId);
+        order.orderCancel();
+    }
     //검색
+    //나중에 여기에 검색 로직 구현
 }

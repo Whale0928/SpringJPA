@@ -34,6 +34,12 @@ public class OrderItem {
     //주문 수량
     private int count;
 
+    /**생성자 제어
+     * Instantiates a new Order item.
+     */
+    protected OrderItem() {
+    }
+
     /**생성 메서드 => 주문 아이템 생성
      * Create order item.
      *
