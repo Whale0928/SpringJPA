@@ -116,6 +116,7 @@ public class OrderServiceTest {
         //when
         orderService.cancelOrder(orderId);
         //then
+        assertEquals("주문 상태가 취소 상태여야하", OrderStatus.CANCEL,orderRepository.findOne(orderId).getStatus());
         assertEquals("재고가 10개여야 함", 10, item.getStockQuantity());
     }
 
