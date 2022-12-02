@@ -30,10 +30,6 @@ public class OrderServiceTest {
     @Autowired
     OrderService orderService;
     @Autowired
-    MemberService memberService;
-    @Autowired
-    ItemService itemService;
-    @Autowired
     OrderRepository orderRepository;
     @Autowired
     EntityManager em;
@@ -76,9 +72,7 @@ public class OrderServiceTest {
     public void 상품주문() {
         //given
         Member member = createMember();
-
         Item book = createItem();
-
 
         //when
         int orderCount = 3;
@@ -91,9 +85,7 @@ public class OrderServiceTest {
         assertEquals("주문 개수가 동일해야 한다.", 1, doOrder.getOrderItems().size());
         assertEquals("주문 가격이 동일해야 한다 가격 * 개수", 13000 * 3, doOrder.getTotalPrice());
         assertEquals("주문 수량만큼 재고가 줄어야 한다.", 7, book.getStockQuantity());
-
     }
-
 
     /**
      * 재고수량 초과시 예외 처리 테스트
