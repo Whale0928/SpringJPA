@@ -70,6 +70,8 @@ public class OrderRepository {
     }
 
     //JPA를 제공하는 표준 동적 쿼리 방식  [ JPA Criteria ] 가 있다 ( 하지만 사용 X )
+    //좋은 방식 -> Query DSL
+
 
 
 }
