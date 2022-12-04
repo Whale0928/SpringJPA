@@ -31,7 +31,7 @@ public class OrderRepository {
     }
 
     //검색
-    public List<Order> findAll(OrderSearch orderSearch) {
+    public List<Order> findAllByString(OrderSearch orderSearch) {
         String jpql = "select o from Order o join o.member m";
 
         boolean isFirstCondition = true;
@@ -68,5 +68,8 @@ public class OrderRepository {
                 .setMaxResults(1000)//최대 1000건
                 .getResultList();// ;
     }
+
+    //JPA를 제공하는 표준 동적 쿼리 방식  [ JPA Criteria ] 가 있다 ( 하지만 사용 X )
+
 
 }
