@@ -30,7 +30,13 @@ public class OrderRepository {
         return em.find(Order.class, id);
     }
 
-    //검색
+    /**상품을 검색
+     * Find all by string list.
+     *
+     * @param orderSearch the order search
+     * @return the list
+     */
+//검색
     public List<Order> findAllByString(OrderSearch orderSearch) {
         String jpql = "select o from Order o join o.member m";
 
@@ -71,7 +77,6 @@ public class OrderRepository {
 
     //JPA를 제공하는 표준 동적 쿼리 방식  [ JPA Criteria ] 가 있다 ( 하지만 사용 X )
     //좋은 방식 -> Query DSL
-
 
 
 }
