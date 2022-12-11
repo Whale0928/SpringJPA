@@ -90,11 +90,11 @@ public class ItemController {
      * @param itemId   the item id
      * @return the string
      */
-    @PostMapping("item/{itemId}/edit")
+    @PostMapping("items/{itemId}/edit")
     public String updateItem(BookForm bookForm, @PathVariable String itemId) {
         Book book = bookSettingMethod(bookForm);
         itemService.saveItem(book);
-        return "redirect:list";
+        return "redirect:/items/list";
     }
 
     /** book form 세팅 메서드
