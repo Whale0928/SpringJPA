@@ -22,8 +22,8 @@ public class ItemRepository {
      */
     public void save(Item item) {
         //아이템 아이디가 없으면 아예 새로 만드는 객체
+        //있는 경우에는 머지 수행
         if (item.getId() == null) em.persist(item);
-            //있는 경우에는 머지 수행
         else em.merge(item);
     }
 
