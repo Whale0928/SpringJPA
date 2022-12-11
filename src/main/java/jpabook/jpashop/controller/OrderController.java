@@ -20,24 +20,26 @@ public class OrderController {
     private final MemberService memberService;
     private final ItemService itemService;
 
-    /**주문 폼 접근
+    /**
+     * 주문 폼 접근
      * Create form string.
      *
      * @param model the model
      * @return the string
      */
     @GetMapping("/order")
-    public String createForm(Model model){
+    public String createForm(Model model) {
         List<Member> members = memberService.findMember();
         List<Item> items = itemService.findItems();
 
-        model.addAttribute("members",members);
-        model.addAttribute("items",items);
+        model.addAttribute("members", members);
+        model.addAttribute("items", items);
 
         return "order/orderForm";
     }
 
-    /**주문 접속
+    /**
+     * 주문 접속
      * Order string.
      *
      * @param memberId the member id
@@ -46,8 +48,8 @@ public class OrderController {
      * @return the string
      */
     @PostMapping("/order")
-    public String order(Long memberId , Long itemId , int count){
-        orderService.order(memberId,itemId,count);
+    public String order(Long memberId, Long itemId, int count) {
+        orderService.order(memberId, itemId, count);
         return "redirect:/orders";
     }
 
